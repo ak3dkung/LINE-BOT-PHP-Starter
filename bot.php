@@ -7,9 +7,9 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
 
-	
-	$receive_txt = $events['message']['text'];
-	$replyToken = $events['replyToken'];
+foreach ($events['events'] as $event) {	
+	$receive_txt = $event['message']['text'];
+	$replyToken = $event['replyToken'];
 	
 	
 	
@@ -37,6 +37,6 @@ $events = json_decode($content, true);
 	curl_close($ch);
 
 	echo $result . "\r\n";
-
+}
 echo "OK";
 ?>
