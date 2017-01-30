@@ -8,8 +8,8 @@ $events = json_decode($content, true);
 
 
 	
-	$receive_txt = $events['events']['message']['text'];
-	$replyToken = $events['events']['replyToken'];
+	$receive_txt = $events['message']['text'];
+	$replyToken = $events['replyToken'];
 	
 	
 	
