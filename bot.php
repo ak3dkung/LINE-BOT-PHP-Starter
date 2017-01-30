@@ -6,9 +6,14 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 
-foreach ($events['events'] as $event) {
-	$replyToken = $event['replyToken'];	
-	$messages = [
+
+	
+	$receive_txt = $events['events']['message']['text'];
+	$replyToken = $events['events']['replyToken'];
+	
+	
+	
+	$reply_messages = [
 		'type' => 'text',
 		'text' => 'ทดสอบ'
 	];
@@ -17,7 +22,7 @@ foreach ($events['events'] as $event) {
 	$url = 'https://api.line.me/v2/bot/message/reply';
 	$data = [
 		'replyToken' => $replyToken,
-		'messages' => [$messages],
+		'messages' => [$reply_messages],
 	];
 	$post = json_encode($data);
 	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
@@ -32,7 +37,6 @@ foreach ($events['events'] as $event) {
 	curl_close($ch);
 
 	echo $result . "\r\n";
-}
 
 echo "OK";
 ?>
