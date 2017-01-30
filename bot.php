@@ -6,7 +6,7 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 
-$replyToken = $events['events']['replyToken'];
+$replyToken = $events['replyToken'];
 $messages="ทดสอบ";
 
 // Make a POST Request to Messaging API to reply to sender
