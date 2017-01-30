@@ -1,4 +1,4 @@
-<?php
+s<?php
 $access_token = 'omDVoUcZhQUaJ9yvbNc0Z4XMGVz6n6KPx0rAosG7DEPQMr9NPgZ67M1QYGDeYzU4lBux+IBkb5NxzUztcK4OW3y6/8177cuivSaPOnpbhbyhhQzCZeab0I97nZtre5t9n00sU+DjQALJSqufPDyfiAdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
@@ -7,7 +7,7 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
 $replyToken = $events['events']['replyToken'];
-$message="ทดสอบ";
+$messages="ทดสอบ";
 
 // Make a POST Request to Messaging API to reply to sender
 $url = 'https://api.line.me/v2/bot/message/reply';
